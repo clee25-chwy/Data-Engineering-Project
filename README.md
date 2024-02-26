@@ -1,0 +1,1 @@
+This is the process I learn data engineering. Course - Data Engineering Zoomcamp([link](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/README.md))
