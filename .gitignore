@@ -10,6 +10,7 @@
 **__pycache__/
 .history
 **/2_docker_sql/ny_taxi_postgres_data/*
+**/2_docker_sql/yellow_tripdata_2023-01.csv
 serving_dir
 .ipynb_checkpoints/
 !week_6_stream_processing/avro_example/data/rides.csv
