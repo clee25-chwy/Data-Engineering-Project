@@ -16,9 +16,9 @@ def main(params):
     db = params.db
     table_name= params.table_name
     url = params.url
-    csv_name = 'output.csv'
+    csv_name = 'yellow_tripdata_2023-01.csv'
 
-    os.system(f"wget {url} -O {csv_name}")
+    # os.system(f"wget {url} -O {csv_name}")
     #download the csv
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
@@ -62,7 +62,6 @@ if __name__ == '__main__':
     parser.add_argument('--url', required=True, help='url of the csv file')
 
     args=parser.parse_args()
-
     main(args)
 
 

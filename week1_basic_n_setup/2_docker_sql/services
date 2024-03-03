@@ -29,6 +29,10 @@ docker run -it \
     -p 8080:80 \
     dpage/pgadmin4
 
+
+
+
+---start from here (build network, start db, start pgadmin, load data)
 ## Network
 docker network create pg-network
 
@@ -53,18 +57,21 @@ docker network create pg-network
     dpage/pgadmin4
 
 
+--replace "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
+---replace ingest_data.py
 ---run script
-URL = "http://192.168.1.97:8000/yellow_tripdata_2023-01.csv"
+
+URL="http://192.168.1.97:8000/yellow_tripdata_2023-01.csv"
 
 
   python3 ingest_data.py \
-    user = root \
-    password = root \
-    host = pg-database \
-    port = 5432 \
-    db = ny_taxi \
-    table_name= yellow_taxi_data \
-    url = ${URL}
+    --user=root \
+    --password=root \
+    --host=pg-database \
+    --port=5432 \
+    --db=ny_taxi \
+    --table_name=yellow_taxi_data \
+    --url=${URL}
 
 ---build docker for ingesting data
  docker build -t taxi_ingest:v001 .
